@@ -4,13 +4,7 @@ var guessesLeft = 10;
 var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var randomLetter = letters[Math.floor(Math.random() * letters.length)];
 console.log(randomLetter);
-function random(){
-    var randomLetter = letters[Math.floor(Math.random() * letters.length)]; 
-    return randomLetter;
-}
 
-random();
-console.log(randomLetter);
 
 document.onkeyup = function(event) {
     var userChoice = event.key;
@@ -23,19 +17,19 @@ document.onkeyup = function(event) {
         wins++;
         guessesLeft = 10;
         document.getElementById("guessedSoFar").innerHTML = ("Your Guesses so far:");
+        document.getElementById("wins").innerHTML = "Wins: " + wins;
+        //Some code to recreate a random number for randomLetter variable. So that the game can reset.
     }
 
     if(guessesLeft === 0){
         losses++;
         guessesLeft = 10;
         document.getElementById("guessedSoFar").innerHTML = ("Your Guesses so far:");
+        document.getElementById("losses").innerHTML ="Losses: " + losses;
     }
 
-
-
     document.getElementById("guessesLeft").innerHTML = "Guesses Left: " + guessesLeft;
-    document.getElementById("wins").innerHTML = "Wins: " + wins;
-    document.getElementById("losses").innerHTML ="Losses: " + losses;
+
 }
 //PseudoCode:
 // Game starts when the page is loaded.
